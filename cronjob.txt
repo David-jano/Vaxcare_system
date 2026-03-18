@@ -1,0 +1,12 @@
+1. Create php script and put this line on the begining of that script [this is the format]
+#!/usr/bin/php
+<?php
+// Your PHP code here
+?>
+2. Save it in your project folder
+2.1. after save it please change it to be executable file [chmod +x my_cron_script.php]
+3. open terminal
+4. install crontab [sudo intall cron]
+5. open crontab file [crontab -e] and edit accordingly where you will set your run time of your script and configure path of the script to run on scheduled time
+5.1. example of the script to be in crontab -e [30 14 * * * /path/to/my_cron_script.php]
+6. confirm the crontab file [crontab -l]

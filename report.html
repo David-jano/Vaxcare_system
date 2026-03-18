@@ -1,0 +1,115 @@
+  // Display the report modal
+        echo "<div class='modal fade' id='exampleModal' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='editModalLabel' aria-hidden='true'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title' id='editModalLabel'>Report</h5>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='col-12'>
+                            <img src='Coat.png' alt='Logo' width='30px' height='30px'>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <hr><br><br>
+                            
+                            <center><h2>Tool Lend Report Form</h2></center>
+                            <br>
+                            <center> on:&nbsp;&nbsp; " . date('d F Y') . " </center>
+                            <br>
+                            <br>
+                            
+                            <ul class='list-group list-group-flush'>
+                                <h4>Equipment Information</h4>
+                                <li class='list-group-item'><strong>Tool Lender:</strong>&nbsp; $a</li>
+                                <li class='list-group-item'><strong>Tool lender Phone:</strong>&nbsp; (+250)$d</li>
+                                <li class='list-group-item'><strong>Name of the Tool:</strong>&nbsp; $h</li>
+                                <li class='list-group-item'><strong>Tool Taken on:</strong>&nbsp; $b</li>
+                                <li class='list-group-item'><strong>Tool Taken at:</strong>&nbsp; $c</li>
+                                
+                                <h4>Return Equipment back Information</h4>
+                                <li class='list-group-item'><strong>Tool will be Taken back on:</strong>&nbsp; $f</li>
+                                <li class='list-group-item'><strong>Tool will be Taken back at:</strong>&nbsp; $j</li>
+                                
+                                <h4>Provider information Information</h4>
+                                <li class='list-group-item'><strong>Tool Provider Names:</strong> ........................</li>
+                            </ul>
+                            
+                            <br>
+                            <br><br>
+                            Done at Gicumbi <br>
+                            <br>
+                            IT/Other Lender Signature 
+                            <br>
+                            _________________________
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button class='btn btn-primary' id='printButton'>Print Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>";
+
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                myModal.show();
+            });
+
+            document.getElementById('printButton').addEventListener('click', function () {
+                window.print();
+            });
+        </script>";
+
+
+
+        <div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeSelect1">Preference</label>
+    <select class="form-select" id="specificSizeSelect1" name="child_age">
+        <option selected>Child Status (Months)</option>
+        <option value="1">Naissance</option>
+        <option value="1.5">1.5</option>
+        <option value="2.5">2.5</option>
+        <option value="3.5">3.5</option>
+    </select>
+</div>
+
+<div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+    <select class="form-select" id="specificSizeSelect2" name="vac_type">
+        <option selected>Vaccination type</option>
+        <option>igituntu</option>
+        <option>imbasa</option>
+        <option>imbasa(ibitonyanga)</option>
+    </select>
+</div>
+<div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeInputName">Child weight</label>
+    <input type="number" class="form-control" id="specificSizeInputName" placeholder="Body Weights" name="weights">
+  </div>
+
+<div class="col-sm-3">
+<div class="form-check" name="taken">
+      <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+      <label class="form-check-label" for="autoSizingCheck2">
+        Taken
+      </label>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeInputName">Name</label>
+    <input type="date" class="form-control" id="specificSizeInputName" placeholder="Date" name="dates">
+  </div>
+
+
+
+ $child_age = $_POST['child_age'];
+
+    $vac_type = $_POST['vac_type'];
+    $weights = $_POST['weights'];
+    $taken = isset($_POST['taken']) ? 0 : 1; // Convert checkbox value to 1 or 0
+    $dates = $_POST['dates'];
